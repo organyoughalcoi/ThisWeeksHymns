@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sunday Hymns — St Mary’s Collegiate Church, Youghal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f4f2d9;
+        color: #222;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 19px;
+        line-height: 1.55;
+      }
+      .page {
+        max-width: 1100px;
+        margin: auto;
+        padding: 28px 18px 40px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 34px 20px 30px;
+        border: 1px solid #b8b093;
+        border-radius: 10px;
+        background:
+          linear-gradient(rgba(255, 253, 244, 0.82), rgba(255, 253, 244, 0.82)),
+          url("images/church.png") center center / cover no-repeat;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.35;
+        margin: 0;
+      }
+      .location {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 8px 0 28px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+      .liturgical-day {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 6px 0 0;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        align-items: start;
+      }
+      .hymn-card {
+        border: 1px solid #77745b;
+        border-radius: 8px;
+        background: #fffef3;
+        padding: 20px;
+      }
+      h3 {
+        text-align: center;
+        font-size: 1.3rem;
+        margin: 0 0 12px;
+      }
+      .hymn-title {
+        font-weight: bold;
+        margin: 0 0 16px;
+      }
+      button {
+        width: 100%;
+        min-height: 52px;
+        padding: 12px;
+        border: 1px solid #34583e;
+        border-radius: 6px;
+        background: #386348;
+        color: white;
+        font:
+          bold 1.05rem Arial,
+          sans-serif;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #294c35;
+      }
+      button:focus-visible,
+      audio:focus-visible {
+        outline: 3px solid #ac6500;
+        outline-offset: 4px;
+      }
+      .hymn-content {
+        margin-top: 20px;
+      }
+      .music-toggle {
+        margin: 0 0 20px;
+      }
+      .music-toggle.playing {
+        background: #843b35;
+        border-color: #843b35;
+      }
+      .music-error {
+        color: #843b35;
+        font-size: 1rem;
+      }
+      audio {
+        width: 100%;
+        display: block;
+        margin: 0 0 20px;
+      }
+      .lyrics p {
+        margin: 0 0 1.2em;
+      }
+      .verse-number {
+        font-size: 0.85em;
+      }
+      .credits {
+        font-size: 0.85em;
+        font-style: italic;
+        color: #444;
+      }
+      .refrain {
+        padding-left: 1em;
+      }
+      .note-button {
+        background: #e8e2c4;
+        color: #29271d;
+        border-color: #837b59;
+      }
+      .note-button:hover {
+        background: #ddd5af;
+      }
+      .historical-note {
+        margin-top: 15px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (max-width: 750px) {
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .page {
+          padding: 22px 12px 30px;
+        }
+        .hymn-card {
+          padding: 17px;
+        }
+      }
+      .sticky-controls {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #fffef3;
+        padding: 8px 0;
+      }
+
+      .sticky-controls .music-toggle {
+        margin: 8px 0 0;
+      }
+
+      .sticky-hymn-label {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>St Mary’s Collegiate Church</h1>
+        <p class="location">Youghal<br />County Cork</p>
+        <h2>Hymns for Sunday 29 November 2026</h2>
+        <p class="liturgical-day">The First Sunday of Advent</p>
+      </header>
+      <main class="cards">
+        <section class="hymn-card">
+          <h3>First Hymn</h3>
+          <p class="hymn-title">
+            Hymn 132, Lo! he comes with clouds descending
+          </p>
+          <button
+            class="hymn-toggle"
+            aria-expanded="false"
+            aria-controls="hymn132"
+          >
+            Tap or click here for music &amp; words
+          </button>
+          <div class="hymn-content" id="hymn132" hidden>
+            <button type="button" class="music-toggle">Play music</button>
+            <audio
+              loop
+              preload="none"
+              hidden
+              aria-label="Organ accompaniment for hymn 132"
+              src="audio/hymn132.mp3"
+            ></audio>
+            <p class="music-error" role="alert" hidden>
+              Unable to play the recording. Please try again.
+            </p>
+            <div class="lyrics">
+              <p>
+                <strong class="verse-number">1.</strong><br />Lo! he comes with
+                clouds descending,<br />
+                once for favoured sinners slain;<br />
+                thousand thousand saints attending<br />
+                swell the triumph of his train:<br />
+                alleluia!<br />
+                God appears on earth to reign.
+              </p>
+              <p>
+                <strong class="verse-number">2.</strong><br />Every eye shall
+                now behold him<br />
+                robed in dreadful majesty;<br />
+                we who set at nought and sold him,<br />
+                pierced, and nailed him to the tree:<br />
+                Lord, have mercy,<br />
+                let us all thine Advent see.
+              </p>
+              <p>
+                <strong class="verse-number">3.</strong><br />Those dear tokens
+                of his Passion<br />
+                still his dazzling body bears,<br />
+                cause of endless exultation<br />
+                to his ransomed worshippers:<br />
+                with what rapture<br />
+                gaze we on those glorious scars!
+              </p>
+              <p>
+                <strong class="verse-number">4.</strong><br />Yea, amen, let all
+                adore thee,<br />
+                high on thine eternal throne;<br />
+                Saviour, take the power and glory;<br />
+                claim the kingdom for thine own:<br />
+                O come quickly,<br />
+                Everlasting God, come down.
+              </p>
+              <p class="credits">
+                John Cennick (1718–55) and Charles Wesley (1707–88) altd.<br />
+                based on Revelation 1: 7
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="hymn-card">
+          <h3>Second Hymn</h3>
+          <p class="hymn-title">Hymn 135, O come, O come, Emmanuel</p>
+          <button
+            class="hymn-toggle"
+            aria-expanded="false"
+            aria-controls="hymn135"
+          >
+            Tap or click here for music &amp; words
+          </button>
+          <div class="hymn-content" id="hymn135" hidden>
+            <button type="button" class="music-toggle">Play music</button>
+            <audio
+              loop
+              preload="none"
+              hidden
+              aria-label="Organ accompaniment for hymn 135"
+              src="audio/hymn135.mp3"
+            ></audio>
+            <p class="music-error" role="alert" hidden>
+              Unable to play the recording. Please try again.
+            </p>
+            <div class="lyrics">
+              <p>
+                <strong class="verse-number">1.</strong><br />O come, O come,
+                Emmanuel,<br />
+                and ransom captive Israel,<br />
+                that mourns in lonely exile here<br />
+                until the Son of God appear:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">2.</strong><br />O come, thou
+                Wisdom from above<br />
+                who ord’rest all things through thy love;<br />
+                to us the path of knowledge show<br />
+                and teach us in her ways to go:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">3.</strong><br />O come, O come,
+                thou Lord of might,<br />
+                who to thy tribes, on Sinai’s height,<br />
+                in ancient times didst give the law<br />
+                in cloud, and majesty, and awe:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">4.</strong><br />O come, thou Rod
+                of Jesse, free<br />
+                thine own from Satan’s tyranny;<br />
+                from depths of hell thy people save,<br />
+                and give them vict’ry o’er the grave:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">5.</strong><br />O come, thou Key
+                of David, come,<br />
+                and open wide our heavenly home;<br />
+                make safe the way that leads on high,<br />
+                and close the path to misery:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">6.</strong><br />O come, thou
+                Dayspring, come and cheer<br />
+                our spirits by thine advent here;<br />
+                disperse the gloomy clouds of night,<br />
+                and death’s dark shadows put to flight:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">7.</strong><br />O come, Desire of
+                Nations, bring<br />
+                all peoples to their Saviour King;<br />
+                thou Corner-stone, who makest one,<br />
+                complete in us thy work begun:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p>
+                <strong class="verse-number">8. (optional)</strong><br />O come,
+                O come, Emmanuel,<br />
+                and ransom captive Israel,<br />
+                that mourns in lonely exile here<br />
+                until the Son of God appear:
+              </p>
+              <p class="refrain">
+                <em
+                  >Rejoice! Rejoice!<br />Emmanuel shall come to thee, O
+                  Israel.</em
+                >
+              </p>
+              <p class="credits">
+                18th-century Latin (or earlier)<br />
+                based on The Advent Antiphons from 9th century (or earlier)<br />
+                tr. John Mason Neale (1818–66) and others altd.
+              </p>
+            </div>
+            <button
+              class="note-button"
+              aria-expanded="false"
+              aria-controls="note135"
+            >
+              Tap or click here for historical notes regarding this hymn
+            </button>
+            <div class="historical-note" id="note135" hidden>
+              <p>This hymn draws on the ancient Advent O Antiphons.</p>
+            </div>
+          </div>
+        </section>
+        <section class="hymn-card">
+          <h3>Third Hymn</h3>
+          <p class="hymn-title">Hymn 136, On Jordan’s bank the Baptist’s cry</p>
+          <button
+            class="hymn-toggle"
+            aria-expanded="false"
+            aria-controls="hymn136"
+          >
+            Tap or click here for music &amp; words
+          </button>
+          <div class="hymn-content" id="hymn136" hidden>
+            <button type="button" class="music-toggle">Play music</button>
+            <audio
+              loop
+              preload="none"
+              hidden
+              aria-label="Organ accompaniment for hymn 136"
+              src="audio/hymn136.mp3"
+            ></audio>
+            <p class="music-error" role="alert" hidden>
+              Unable to play the recording. Please try again.
+            </p>
+            <div class="lyrics">
+              <p>
+                <strong class="verse-number">1.</strong><br />On Jordan’s bank
+                the Baptist’s cry<br />
+                announces that the Lord is nigh;<br />
+                awake and hearken, for he brings<br />
+                glad tidings of the King of kings.
+              </p>
+              <p>
+                <strong class="verse-number">2.</strong><br />Then cleansed be
+                every heart from sin;<br />
+                make straight the way for God within;<br />
+                prepare we in our hearts a home,<br />
+                where such a mighty guest may come.
+              </p>
+              <p>
+                <strong class="verse-number">3.</strong><br />For thou art our
+                salvation, Lord,<br />
+                our refuge and our great reward;<br />
+                without thy grace we waste away,<br />
+                like flowers that wither and decay.
+              </p>
+              <p>
+                <strong class="verse-number">4.</strong><br />To heal the sick
+                stretch forth thine hand,<br />
+                and bid the fallen sinner stand;<br />
+                shine forth, and let thy light restore<br />
+                earth’s own true loveliness once more.
+              </p>
+              <p>
+                <strong class="verse-number">5.</strong><br />All praise,
+                eternal Son, to thee,<br />
+                whose advent doth thy people free;<br />
+                whom with the Father we adore,<br />
+                and Holy Ghost for evermore.
+              </p>
+              <p class="credits">
+                Charles Coffin (1676–1749)<br />
+                tr. John Chandler (1806–76) altd.<br />
+                based on Luke 3: 1–18
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="hymn-card">
+          <h3>Fourth Hymn</h3>
+          <p class="hymn-title">
+            Hymn 126, Hark! a thrilling voice is sounding
+          </p>
+          <button
+            class="hymn-toggle"
+            aria-expanded="false"
+            aria-controls="hymn126"
+          >
+            Tap or click here for music &amp; words
+          </button>
+          <div class="hymn-content" id="hymn126" hidden>
+            <button type="button" class="music-toggle">Play music</button>
+            <audio
+              loop
+              preload="none"
+              hidden
+              aria-label="Organ accompaniment for hymn 126"
+              src="audio/hymn126.mp3"
+            ></audio>
+            <p class="music-error" role="alert" hidden>
+              Unable to play the recording. Please try again.
+            </p>
+            <div class="lyrics">
+              <p>
+                <strong class="verse-number">1.</strong><br />Hark! a thrilling
+                voice is sounding,<br />
+                ‘Christ is nigh’, it seems to say;<br />
+                ‘Cast away the dreams of darkness,<br />
+                O ye children of the day!’
+              </p>
+              <p>
+                <strong class="verse-number">2.</strong><br />Wakened by the
+                solemn warning,<br />
+                let the earth-bound soul arise;<br />
+                Christ, her Sun, all ill dispelling,<br />
+                shines upon the morning skies.
+              </p>
+              <p>
+                <strong class="verse-number">3.</strong><br />Lo! the Lamb, so
+                long expected,<br />
+                comes with pardon down from heaven:<br />
+                let us haste, with tears of sorrow,<br />
+                one and all to be forgiven;
+              </p>
+              <p>
+                <strong class="verse-number">4.</strong><br />that when next he
+                comes in glory,<br />
+                and the world is wrapped in fear,<br />
+                with his mercy he may shield us,<br />
+                and with words of love draw near.
+              </p>
+              <p>
+                <strong class="verse-number">5.</strong><br />Honour, glory,
+                might and blessing<br />
+                to the Father and the Son,<br />
+                with the everlasting Spirit,<br />
+                while eternal ages run.
+              </p>
+              <p class="credits">
+                6th-century Latin<br />
+                tr. Edward Caswall (1814–78)
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const hymnButtons = document.querySelectorAll(".hymn-toggle");
+      function stopMusic(panel) {
+        const audio = panel.querySelector("audio");
+        audio.pause();
+        audio.currentTime = 0;
+      }
+      function closeHymn(button) {
+        const panel = document.getElementById(
+          button.getAttribute("aria-controls"),
+        );
+        panel.hidden = true;
+        stopMusic(panel);
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = "Tap or click here for music & words";
+      }
+      hymnButtons.forEach((button) => {
+        const panel = document.getElementById(
+          button.getAttribute("aria-controls"),
+        );
+        const audio = panel.querySelector("audio");
+        const musicButton = panel.querySelector(".music-toggle");
+        const error = panel.querySelector(".music-error");
+        function updateButtons() {
+          const playing = !audio.paused;
+          musicButton.textContent = playing ? "Stop music" : "Play music";
+          musicButton.classList.toggle("playing", playing);
+          if (!panel.hidden)
+            button.textContent = playing
+              ? "Stop music & hide words"
+              : "Hide music & words";
+        }
+        audio.addEventListener("play", updateButtons);
+        audio.addEventListener("pause", updateButtons);
+        musicButton.addEventListener("click", async () => {
+          error.hidden = true;
+          if (!audio.paused) {
+            stopMusic(panel);
+          } else {
+            try {
+              await audio.play();
+            } catch (e) {
+              if (e.name !== "AbortError") error.hidden = false;
+            }
+          }
+          updateButtons();
+        });
+        button.addEventListener("click", () => {
+          const wasOpen = button.getAttribute("aria-expanded") === "true";
+          hymnButtons.forEach(closeHymn);
+          if (!wasOpen) {
+            panel.hidden = false;
+            error.hidden = true;
+            button.setAttribute("aria-expanded", "true");
+            updateButtons();
+          }
+          button.closest(".hymn-card").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+
+        const controls = document.createElement("div");
+        controls.className = "sticky-controls";
+
+        const hymnLabel = document.createElement("div");
+        hymnLabel.className = "sticky-hymn-label";
+        hymnLabel.textContent = "Hymn " + panel.id.replace("hymn", "");
+
+        button.before(controls);
+        controls.append(hymnLabel, button, musicButton);
+        musicButton.hidden = true;
+
+        const observer = new MutationObserver(() => {
+          musicButton.hidden = panel.hidden;
+          hymnLabel.hidden = panel.hidden;
+        });
+
+        hymnLabel.hidden = true;
+        observer.observe(panel, {
+          attributes: true,
+          attributeFilter: ["hidden"],
+        });
+      });
+      document.querySelectorAll(".note-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const panel = document.getElementById(
+            button.getAttribute("aria-controls"),
+          );
+          panel.hidden = !panel.hidden;
+          button.setAttribute("aria-expanded", String(!panel.hidden));
+          button.textContent = panel.hidden
+            ? "Tap or click here for historical notes regarding this hymn"
+            : "Hide historical notes";
+        });
+      });
+    </script>
+  </body>
+</html>
