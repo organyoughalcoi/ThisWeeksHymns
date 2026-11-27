@@ -10,8 +10,8 @@
       }
       body {
         margin: 0;
-        background: #f4f2d9;
-        color: #222;
+        background: #eee9df;
+        color: #392a24;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 19px;
         line-height: 1.55;
@@ -21,15 +21,23 @@
         margin: auto;
         padding: 28px 18px 40px;
       }
-      header {
+       header {
         text-align: center;
         margin-bottom: 30px;
         padding: 34px 20px 30px;
-        border: 1px solid #b8b093;
+        border: 1px solid #b7a58a;
         border-radius: 10px;
         background:
-          linear-gradient(rgba(255, 253, 244, 0.82), rgba(255, 253, 244, 0.82)),
+          linear-gradient(
+            rgba(227, 217, 199, 0.45),
+            rgba(227, 217, 199, 0.45)
+          ),
           url("images/church.png") center center / cover no-repeat;
+        color: #50202f;
+        text-shadow:
+          0 0 4px #fffdf7,
+          0 0 8px #fffdf7,
+          0 0 12px #fffdf7;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
       }
       h1 {
@@ -59,9 +67,9 @@
         align-items: start;
       }
       .hymn-card {
-        border: 1px solid #77745b;
+        border: 1px solid #b7a58a;
         border-radius: 8px;
-        background: #fffef3;
+        background: #fffdf7;
         padding: 20px;
       }
       h3 {
@@ -77,9 +85,9 @@
         width: 100%;
         min-height: 52px;
         padding: 12px;
-        border: 1px solid #34583e;
+        border: 1px solid #643441;
         border-radius: 6px;
-        background: #386348;
+        background: #643441;
         color: white;
         font:
           bold 1.05rem Arial,
@@ -87,11 +95,11 @@
         cursor: pointer;
       }
       button:hover {
-        background: #294c35;
+        background: #49232e;
       }
       button:focus-visible,
       audio:focus-visible {
-        outline: 3px solid #ac6500;
+        outline: 3px solid #946b22;
         outline-offset: 4px;
       }
       .hymn-content {
@@ -122,21 +130,29 @@
       .credits {
         font-size: 0.85em;
         font-style: italic;
-        color: #444;
+        color: #51453e;
       }
       .refrain {
         padding-left: 1em;
       }
-      .note-button {
-        background: #e8e2c4;
-        color: #29271d;
-        border-color: #837b59;
+            .note-button {
+        background: #e4d6b5;
+        color: #392a24;
+        border-color: #a18a60;
+        margin-top: 8px;
       }
       .note-button:hover {
-        background: #ddd5af;
+        background: #d8c69e;
+      }
+            .note-button[aria-expanded="true"] {
+        position: sticky;
+        top: 0;
+        z-index: 101;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
       }
       .historical-note {
         margin-top: 15px;
+        text-align: justify;
       }
       [hidden] {
         display: none !important;
@@ -157,7 +173,7 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: #fffef3;
+        background: #fffdf7;
         padding: 8px 0;
       }
 
@@ -383,6 +399,7 @@
                 tr. John Mason Neale (1818–66) and others altd.
               </p>
             </div>
+                      </div>
             <button
               class="note-button"
               aria-expanded="false"
@@ -391,9 +408,108 @@
               Tap or click here for historical notes regarding this hymn
             </button>
             <div class="historical-note" id="note135" hidden>
-              <p>This hymn draws on the ancient Advent O Antiphons.</p>
+              <p>
+                <strong>The Words</strong><br />
+                Perhaps the best known Advent Hymn,
+                <em>“O Come, O Come, Emmanuel”</em> originated in part from the
+                “Great ‘O’ Antiphons,” part of the medieval Roman Catholic
+                Advent liturgy.
+              </p>
+
+              <p>
+                Derived from a Latin poem which possibly dates from the 12th
+                century, John Mason Neale’s translation from 1851 contains seven
+                stanzas. A refrain was also added to the original text:
+                <em
+                  >“Rejoice, rejoice, Emmanuel shall come to you, O Israel.”</em
+                >
+              </p>
+
+              <p>
+                The Latin text, beginning <em>'Veni, veni Emmanuel'</em>, was
+                sung at Vespers during Advent, in the seven days beginning on 17
+                December. Each day one of these seven Antiphons was sung before
+                and after the Magnificat. The verses, which each included a
+                different Old Testament name for the coming Messiah, were
+                chanted to exemplify Christ as the fulfillment of Old Testament
+                prophecy.
+              </p>
+
+              <p>The opening lines of the antiphons were as follows:</p>
+
+              <ol>
+                <li>
+                  <i>O <strong>S</strong>apientia, quae ex ore altissimi</i> (O Wisdom,
+                  who comes forth from the mouth of the Most High)
+                </li>
+                <li>
+                  <i>O <strong>A</strong>donai et dux domus Israel</i> (O Lord and
+                  leader of the house of Israel)
+                </li>
+                <li>
+                  <i>O <strong>R</strong>adix Jesse qui stas in signum</i> (O Root of
+                  Jesse, who stands as a sign)
+                </li>
+                <li>
+                  <i>O <strong>C</strong>lavis David et sceptrum domus</i> (O Key of
+                  David and sceptre of the house)
+                </li>
+                <li>
+                  O <strong>O</strong>riens, splendor lucis aeternae</i> (O
+                  Dayspring, splendour of eternal light)
+                </li>
+                <li>
+                  <i>O <strong>R</strong>ex gentium et desideratus</i> (O King of the
+                  nations and their desire)
+                </li>
+                <li>
+                  O <strong>E</strong>mmanuel, rex et legifer</i> (O Emmanuel, King
+                  and Lawgiver)
+                </li>
+              </ol>
+              <p>
+                This is an example of what is known as an <em>acrostic</em>. An
+                acrostic is a composition in which certain letters, usually the
+                first letter of each line, verse or section, combine to spell a
+                word, phrase or hidden message.
+              </p>
+
+              <p>
+                The word derives from the Greek <em>akros</em> (outermost or
+                extremity) and <em>stichos</em>
+                (line of verse). In the case of the seven Advent O Antiphons, we
+                have a reverse acrostic, since the initial letters of their
+                principal titles, when read in reverse order, spell the Latin
+                phrase <em>‘ero cras’</em> (‘Tomorrow I shall be’, in the sense of 'I will be born tomorrow').
+                 These letters are shown <b>in bold print</b> above.
+              </p>
+
+              <p>
+                Acrostics have a long tradition in religious literature,
+                particularly in the Psalms, where several are constructed so
+                that successive verses or groups of verses begin with successive
+                letters of the Hebrew alphabet. Psalm 119 is perhaps the
+                best-known example.
+              </p>
+
+              <p>
+                <strong>The Music</strong><br />
+                The tune “Veni Emmanuel” was originally music for a Requiem Mass
+                in a fifteenth-century French Franciscan Processional. Thomas
+                Helmore (1811-1890) adapted this chant tune and published it in
+                Part II of his The Hymnal Noted (1854). A graduate of Magdalen
+                College, Oxford England, Helmore was ordained a priest in the
+                Church of England, but his main contribution to the church was
+                in music. He was precentor at St. Mark's College, Chelsea
+                (1842-1877), and master of the choristers in the Chapel Royal
+                for many years. He promoted unaccompanied choral services and
+                played an important part in the revival of plainchant in the
+                Anglican Church. Helmore was involved in various publications of
+                hymns, chants, and carols, including A Manual of Plainsong
+                (1850) and The Hymnal Noted (with John Mason Neale).
+              </p>
             </div>
-          </div>
+
         </section>
         <section class="hymn-card">
           <h3>Third Hymn</h3>
@@ -614,16 +730,44 @@
           attributeFilter: ["hidden"],
         });
       });
-      document.querySelectorAll(".note-button").forEach((button) => {
+            const noteButtons = document.querySelectorAll(".note-button");
+
+      function closeNotes() {
+        noteButtons.forEach((button) => {
+          const panel = document.getElementById(
+            button.getAttribute("aria-controls"),
+          );
+          panel.hidden = true;
+          button.setAttribute("aria-expanded", "false");
+          button.textContent =
+            "Tap or click here for historical notes regarding this hymn";
+        });
+      }
+
+      hymnButtons.forEach((button) => {
+        button.addEventListener("click", closeNotes);
+      });
+
+      noteButtons.forEach((button) => {
         button.addEventListener("click", () => {
           const panel = document.getElementById(
             button.getAttribute("aria-controls"),
           );
-          panel.hidden = !panel.hidden;
-          button.setAttribute("aria-expanded", String(!panel.hidden));
-          button.textContent = panel.hidden
-            ? "Tap or click here for historical notes regarding this hymn"
-            : "Hide historical notes";
+          const wasOpen = !panel.hidden;
+
+          hymnButtons.forEach(closeHymn);
+          closeNotes();
+
+          if (!wasOpen) {
+            panel.hidden = false;
+            button.setAttribute("aria-expanded", "true");
+            button.textContent = "Hide historical notes";
+          }
+
+          button.closest(".hymn-card").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         });
       });
     </script>
